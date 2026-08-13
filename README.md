@@ -110,13 +110,9 @@ self-evolving-agent/
 │   ├── five-layers.md         # 五层架构详解
 │   └── data-flow.md           # 数据流向（知识库↔笔记↔系统层）
 ├── memory-system/
-│   ├── anchor.md              # 锚点设计（上下文恢复入口）
-│   ├── constitution.md        # 宪法层设计（行为准则）
-│   ├── profile.md             # 画像设计（越用越懂你的关键）
-│   └── memory-layers.md       # 记忆分层（固化/活跃/系统）
+│   └── memory-layers.md       # 记忆分层设计（系统/知识库/笔记/经验/边界）
 ├── distillation/
-│   ├── mechanism.md           # 蒸馏机制详解
-│   └── task-log.md            # 任务记录规范
+│   └── mechanism.md           # 蒸馏机制详解
 ├── boundary/
 │   ├── privacy.md             # 隐私与数据卫生
 │   └── sovereignty.md         # 主权设计（决策权归属）
