@@ -32,7 +32,7 @@ git clone https://github.com/3loveljw2/self-evolving-agent.git
 cd self-evolving-agent
 cp templates/*.md my-agent/          # 锚点模板/画像模板/任务记录模板...
 
-# 3. 按 templates/README 顺序填写（每份模板都有填写说明）
+# 3. 按 templates/ 各模板文件内说明的顺序填写（每份模板都有填写说明）
 #    ├── anchor.md          ← 系统入口（恢复上下文用）
 #    ├── constitution.md    ← 行为准则（边界/铁律）
 #    ├── profile.md         ← 你的画像（角色/习惯/偏好）
@@ -45,13 +45,18 @@ cp templates/*.md my-agent/          # 锚点模板/画像模板/任务记录模
 
 ---
 
-## 正在变成可执行形态（v0.1）
+## 正在变成可执行形态（v0.1 → P0 已可运行）
 
-本框架目前是**基准框架（模板+方法论）**，最小可执行形态（本地 CLI `sea`）的架构设计已就绪：
+本框架 = **基准框架（模板+方法论）+ 可运行 CLI**。最小可执行形态 `sea` 的 **P0 已实现并可运行**：
 
-> **`sea` CLI**：管理本地 Markdown 记忆（分层/蒸馏/技能管理）——`sea init` → `sea add` → `sea distill` → `sea skill update`，本地优先、记忆即文件、最小依赖（≤3 个运行时依赖）。
+> **`sea` CLI**：管理本地 Markdown 记忆——`sea init` → `sea add`（自动分层 L1/L2/L3）→ `sea status` → `sea read`。本地优先、记忆即文件、最小依赖（typer + rich）。
+>
+> ```bash
+> pip install -e .   # 或：pip install .（见 pyproject.toml）
+> sea init && sea add "2026-08-13 完成 P0" --show && sea status
+> ```
 
-架构设计见 **[ARCHITECTURE.md](ARCHITECTURE.md)**（模块划分 / 接口契约 / 数据流 / 落地计划）。实现代码按软著流程推进中。
+架构设计见 **[ARCHITECTURE.md](ARCHITECTURE.md)**；CLI 规格见 **[docs/spec-001-cli.md](docs/spec-001-cli.md)**。蒸馏（`sea distill`）与边界守护（`guard`）模块按软著流程推进后放出。
 
 ---
 
@@ -152,11 +157,11 @@ self-evolving-agent/
 
 | 方案 | 形态 | 存储 | 蒸馏可审计 | 本地优先 | 关键差异 |
 |---|---|---|---|---|---|
-| **self-evolving-agent（本项目）** | 基准框架（模板+方法论+CLI 规划） | 纯 Markdown 文件 | ✅ 写入长期记忆必须人工确认 | ✅ 数据不出本机 | 五层架构 + 记忆即文件 + 蒸馏防污染 |
-| MemGPT / Letta | 托管 Agent 记忆框架 | 数据库/服务端 | ❌ 自动 | ❌ 依赖服务 | 侧重上下文分层管理，非本地文件优先 |
-| Mem0 | 记忆库（托管/自建） | 向量存储 | ❌ 自动嵌入 | 部分 | 自动嵌入为主，人不可读 |
-| Claude / Cursor 原生记忆 | 供应商内置 | 供应商云端 | ❌ | ❌ | 供应商锁定，不可迁移 |
-| 第二脑/笔记流方法论 | 个人知识管理方法 | 笔记软件 | — | ✅ | 为"人记笔记"设计，不是给 AI 的记忆系统 |
+| **self-evolving-agent（本项目）** | 基准框架（模板+方法论+CLI） | 纯 Markdown 文件 | ✅ 写入长期记忆必须人工确认 | ✅ 数据不出本机 | 五层架构 + 记忆即文件 + 蒸馏防污染 |
+| MemGPT / Letta | Agent 记忆框架（可自托管，server 架构为主） | 数据库/服务端 | ❌ 自动 | 部分（可自托管但非文件优先） | 侧重上下文分层管理，非本地文件优先（[GitHub](https://github.com/letta-ai/letta)） |
+| Mem0 | 记忆库（托管/自建） | 向量存储 | ❌ 自动嵌入 | 部分 | 自动嵌入为主，人不可读（[GitHub](https://github.com/mem0ai/mem0)） |
+| Claude / Cursor 原生记忆 | 供应商内置 | 供应商云端 | ❌ | ❌ | 供应商锁定，不可迁移（[Anthropic](https://docs.anthropic.com/)） |
+| 第二脑/笔记流方法论 | 个人知识管理方法 | 笔记软件 | — | ✅ | 为"人记笔记"设计，不是给 AI 的记忆系统（[Building a Second Brain](https://www.buildingasecondbrain.com/)） |
 
 **一句话定位**：它们解决"AI 记不记得住"，我们额外解决"记忆可读、可审计、不污染、不锁死"——给 AI 的记忆，同时是你随时能翻开看、能 git、能带走的文件。
 
