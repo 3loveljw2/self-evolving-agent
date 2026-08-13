@@ -1,0 +1,20 @@
+[project]
+name = "sea"
+version = "0.1.0"
+description = "self-evolving-agent CLI — local-first Markdown memory system (memory layering / distillation / skill management)"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+dependencies = ["typer>=0.12", "rich>=13"]
+
+[project.scripts]
+sea = "sea.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sea"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
