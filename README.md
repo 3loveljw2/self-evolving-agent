@@ -45,6 +45,16 @@ cp templates/*.md my-agent/          # 锚点模板/画像模板/任务记录模
 
 ---
 
+## 正在变成可执行形态（v0.1）
+
+本框架目前是**基准框架（模板+方法论）**，最小可执行形态（本地 CLI `sea`）的架构设计已就绪：
+
+> **`sea` CLI**：管理本地 Markdown 记忆（分层/蒸馏/技能管理）——`sea init` → `sea add` → `sea distill` → `sea skill update`，本地优先、记忆即文件、最小依赖（≤3 个运行时依赖）。
+
+架构设计见 **[ARCHITECTURE.md](ARCHITECTURE.md)**（模块划分 / 接口契约 / 数据流 / 落地计划）。实现代码按软著流程推进中。
+
+---
+
 ## 系统架构（五层）
 
 ```
