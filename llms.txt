@@ -6,7 +6,7 @@
 
 - [README.md](README.md): Framework overview — the five layers and how they evolve together.
 - [ARCHITECTURE.md](ARCHITECTURE.md): Minimal executable design — a local-first Python CLI (`sea`) for managing Markdown memory.
-- [memory-system/memory-layers.md](memory-system/memory-layers.md): How memory is layered (L1 scratch / L2 logs / L3 knowledge base).
+- [memory-system/memory-layers.md](memory-system/memory-layers.md): How memory is layered (four layers: system / knowledge base / notes / experience) and how it maps to the five-layer framework.
 - [distillation/mechanism.md](distillation/mechanism.md): How experiences are distilled into reusable rules and skills.
 - [skill-evolution/skill-design.md](skill-evolution/skill-design.md): How skills are designed to self-improve.
 - [boundary/privacy.md](boundary/privacy.md): Privacy and data sovereignty boundaries.
