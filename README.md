@@ -4,7 +4,7 @@
 
 一个可部署的基准框架：让任何人在本地给 AI Agent 搭一套**持续自生长的系统**——记忆分层、经验蒸馏、技能进化、边界守护。你不需要懂复杂架构，照着模板填，AI 就会开始"记住你、变聪明、越用越顺手"。
 
-![badge](https://img.shields.io/badge/核心-自我进化-brightgreen) ![badge](https://img.shields.io/badge/形态-基准框架-blue) ![badge](https://img.shields.io/badge/适用-任何AI-Agent-orange)
+![badge](https://img.shields.io/badge/核心-自我进化-brightgreen) ![badge](https://img.shields.io/badge/形态-基准框架-blue) ![badge](https://img.shields.io/badge/适用-任何AI-Agent-orange) ![CI](https://github.com/3loveljw2/self-evolving-agent/actions/workflows/ci.yml/badge.svg)
 
 ---
 
@@ -167,4 +167,4 @@ self-evolving-agent/
 
 ## License
 
-[CC BY 4.0](LICENSE)
+**Dual license**: code (`src/`, `tests/`, `pyproject.toml`) is [MIT](https://opensource.org/licenses/MIT); documentation and methodology docs (`.md` files) are [CC BY 4.0](LICENSE).
