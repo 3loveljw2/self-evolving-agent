@@ -15,7 +15,11 @@ LEVELS: tuple[str, ...] = ("scratch", "logs", "kb")
 
 @dataclass
 class Config:
-    home: Path = field(default_factory=lambda: Path(os.environ.get("SEA_HOME", Path.home() / ".sea")))
+    home: Path = field(
+        default_factory=lambda: Path(
+            os.environ.get("SEA_HOME", Path.home() / ".sea")
+        )
+    )
 
     @property
     def memory_dir(self) -> Path:
