@@ -39,7 +39,7 @@ sea version              # 版本号
 ## 实现
 
 - 源码：`src/sea/`（config.py / cli.py / memory/store.py / memory/layering.py）
-- 测试：`tests/test_memory.py`（10 个用例：分层规则/自动分层/强制分层/非法层级/空输入/读写回环/统计）
+- 测试：`tests/test_memory.py`（19 个用例：分层规则/自动分层/强制分层/非法层级/空输入/读写回环/统计）
 - 安装：`pip install -e .` 后 `sea` 命令可用
 
 ## 后续（P1/P2，核心模块本地留存）
