@@ -61,3 +61,18 @@ def test_status_counts(cfg: Config) -> None:
     store.add(cfg, "随手记")
     s = cfg.summary()
     assert s["scratch"] == 1
+
+
+def test_layering_english_rule_hint() -> None:
+    # English rule-like content should go to kb (not scratch)
+    assert classify("Always keep memory local and never upload raw data. This is the core policy of the framework.") == "kb"
+
+
+def test_layering_english_log_hint() -> None:
+    # English task record should go to logs
+    assert classify("2026-08-15 completed the exam paper task") == "logs"
+
+
+def test_layering_english_scratch() -> None:
+    # Short English note stays scratch
+    assert classify("just a quick thought") == "scratch"
