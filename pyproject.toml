@@ -1,5 +1,5 @@
 [project]
-name = "sea"
+name = "sea-memory"
 version = "0.1.0"
 description = "self-evolving-agent CLI — local-first Markdown memory system (memory layering / distillation / skill management)"
 requires-python = ">=3.11"
