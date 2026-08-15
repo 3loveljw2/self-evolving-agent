@@ -25,7 +25,10 @@
 ## 快速上手（30 分钟搭好）
 
 ```bash
-# 1. 克隆框架
+# 0. 一行安装（PyPI）
+pip install sea-memory
+
+# 1. 或克隆框架
 git clone https://github.com/3loveljw2/self-evolving-agent.git
 
 # 2. 复制模板，填入你的信息
