@@ -39,10 +39,10 @@ sea version              # 版本号
 ## 实现
 
 - 源码：`src/sea/`（config.py / cli.py / memory/store.py / memory/layering.py）
-- 测试：`tests/test_memory.py`（7 个用例：分层规则/自动分层/强制分层/非法层级/空输入/读写回环/统计）
+- 测试：`tests/test_memory.py`（10 个用例：分层规则/自动分层/强制分层/非法层级/空输入/读写回环/统计）
 - 安装：`pip install -e .` 后 `sea` 命令可用
 
-## 后续（P1/P2，软著流程后）
+## 后续（P1/P2，核心模块本地留存）
 
 - `sea distill`：扫描 task-log → 聚类 → 蒸馏草稿（产出需人工确认才写入 kb）
 - `sea skill update`：蒸馏结果合并进技能文件
