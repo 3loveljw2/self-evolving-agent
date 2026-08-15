@@ -9,6 +9,9 @@ dependencies = ["typer>=0.12", "rich>=13"]
 [project.scripts]
 sea = "sea.cli:app"
 
+[dependency-groups]
+dev = ["pytest>=8"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
