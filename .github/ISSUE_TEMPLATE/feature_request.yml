@@ -1,0 +1,24 @@
+name: Feature request
+description: 提一个功能建议
+title: "[Feature] "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: scenario
+    attributes:
+      label: 使用场景
+      description: 你想在什么场景下用它？现在的痛点是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: 期望方案
+      description: 你希望它怎么工作？
+    validations:
+      required: true
+  - type: textarea
+    id: alt
+    attributes:
+      label: 备选方案
+      description: 你试过其他方法吗？
