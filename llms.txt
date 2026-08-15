@@ -11,3 +11,5 @@
 - [skill-evolution/skill-design.md](skill-evolution/skill-design.md): How skills are designed to self-improve.
 - [boundary/privacy.md](boundary/privacy.md): Privacy and data sovereignty boundaries.
 - [templates/](templates/): Ready-to-use templates (memory, anchor, constitution, task-log, profile).
+
+- [examples/memory-sample.md](examples/memory-sample.md): Desensitized memory sample (L1/L2/L3).
