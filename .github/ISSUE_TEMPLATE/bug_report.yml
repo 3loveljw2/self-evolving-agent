@@ -1,0 +1,31 @@
+name: Bug report
+description: 报告一个 bug（请先搜索是否已有人报过）
+title: "[Bug] "
+labels: [bug]
+body:
+  - type: textarea
+    id: desc
+    attributes:
+      label: 问题描述
+      description: 发生了什么？期望是什么？
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: 复现步骤
+      description: 1. 执行 xxx  2. 得到 xxx
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 环境
+      description: Python 版本 / 操作系统 / sea 版本（`sea version`）
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: 错误输出
+      description: 终端报错或日志（如有）
