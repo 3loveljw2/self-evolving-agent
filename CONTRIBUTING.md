@@ -42,6 +42,6 @@ uv run pytest      # 跑测试（10 个用例）
 
 ## 待做方向（Roadmap）
 
-- `sea distill`：经验蒸馏命令（软著流程后放出）
+- `sea distill`：经验蒸馏命令（核心模块，本地留存）
 - `sea skill`：技能管理
 - 欢迎在 Issue 区讨论优先级！
