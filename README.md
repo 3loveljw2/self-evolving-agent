@@ -56,7 +56,7 @@ cp templates/*.md my-agent/          # 锚点模板/画像模板/任务记录模
 > sea init && sea add "2026-08-13 完成 P0" --show && sea status
 > ```
 
-架构设计见 **[ARCHITECTURE.md](ARCHITECTURE.md)**；CLI 规格见 **[docs/spec-001-cli.md](docs/spec-001-cli.md)**。蒸馏（`sea distill`）与边界守护（`guard`）模块按软著流程推进后放出。
+架构设计见 **[ARCHITECTURE.md](ARCHITECTURE.md)**；CLI 规格见 **[docs/spec-001-cli.md](docs/spec-001-cli.md)**。蒸馏（`sea distill`）与边界守护（`guard`）为框架核心模块，按知识产权策略本地留存（GitHub 创作时间线作为著作权证据），后续择机发布。
 
 ---
 
@@ -110,60 +110,25 @@ cp templates/*.md my-agent/          # 锚点模板/画像模板/任务记录模
 
 ```
 self-evolving-agent/
-├── README.md                  # 本文件
-├── architecture/
-│   ├── five-layers.md         # 五层架构详解
-│   └── data-flow.md           # 数据流向（知识库↔笔记↔系统层）
-├── memory-system/
-│   └── memory-layers.md       # 记忆分层设计（系统/知识库/笔记/经验/边界）
-├── distillation/
-│   └── mechanism.md           # 蒸馏机制详解
-├── boundary/
-│   ├── privacy.md             # 隐私与数据卫生
-│   └── sovereignty.md         # 主权设计（决策权归属）
-├── skill-evolution/
-│   ├── skill-design.md        # Skill 怎么设计
-│   └── versioning.md          # 版本管理与回滚
-├── templates/                 # 可直接套用的模板
-│   ├── anchor.md
-│   ├── constitution.md
-│   ├── profile.md
-│   ├── memory.md
-│   └── task-log.md
-└── LICENSE                    # CC BY 4.0
+├── src/sea/                # sea CLI 源码（P0，已开源）
+│   ├── cli.py              # Typer 入口：init / add / status / read
+│   ├── config.py           # 记忆目录配置（~/.sea）
+│   └── memory/             # 分层存储（scratch / logs / kb）
+├── tests/                  # 10 个测试（双语分层 / 边界 / 异常）
+├── docs/                   # 规格文档（spec-001-cli / memory-layout）
+├── architecture/           # 架构设计（五层 / 数据流）
+├── distillation/           # 蒸馏机制（核心模块 · 本地留存）
+├── boundary/               # 边界守护（核心模块 · 本地留存）
+├── memory-system/          # 记忆分层设计
+├── skill-evolution/        # 技能进化机制
+├── templates/              # 模板（anchor / memory / task-log …）
+├── .github/workflows/      # CI（Python 3.11 / 3.12 矩阵）
+├── CHANGELOG.md            # 版本记录（Keep a Changelog）
+├── CONTRIBUTING.md         # 贡献指南
+├── LICENSE                 # CC BY 4.0（文档）
+├── llms.txt                # AI 可索引
+└── pyproject.toml          # 包配置（代码 MIT）
 ```
-
----
-
-## 边界声明（重要）
-
-- 本框架只提供**骨架、方法、模板**——不含任何人的个人数据
-- 你在本地填入自己的信息，数据**只属于你**
-- 框架设计原则：**敏感信息永不外传、决策权永远在人、系统可回滚**
-
----
-
-## 谁适合用
-
-- 想让 AI "记住你"的普通用户
-- 用 AI 做长期项目（学习/写作/研究/创作）的人
-- AI Agent 开发者（借鉴记忆与进化设计）
-
----
-
-⭐ 如果这个框架对你有用，点个 star——让更多人拥有"越用越懂自己"的 AI。
-
-## 与现有方案对比（2026-08）
-
-| 方案 | 形态 | 存储 | 蒸馏可审计 | 本地优先 | 关键差异 |
-|---|---|---|---|---|---|
-| **self-evolving-agent（本项目）** | 基准框架（模板+方法论+CLI） | 纯 Markdown 文件 | ✅ 写入长期记忆必须人工确认 | ✅ 数据不出本机 | 五层架构 + 记忆即文件 + 蒸馏防污染 |
-| MemGPT / Letta | Agent 记忆框架（可自托管，server 架构为主） | 数据库/服务端 | ❌ 自动 | 部分（可自托管但非文件优先） | 侧重上下文分层管理，非本地文件优先（[GitHub](https://github.com/letta-ai/letta)） |
-| Mem0 | 记忆库（托管/自建） | 向量存储 | ❌ 自动嵌入 | 部分 | 自动嵌入为主，人不可读（[GitHub](https://github.com/mem0ai/mem0)） |
-| Claude / Cursor 原生记忆 | 供应商内置 | 供应商云端 | ❌ | ❌ | 供应商锁定，不可迁移（[Anthropic](https://docs.anthropic.com/)） |
-| 第二脑/笔记流方法论 | 个人知识管理方法 | 笔记软件 | — | ✅ | 为"人记笔记"设计，不是给 AI 的记忆系统（[Building a Second Brain](https://www.buildingasecondbrain.com/)） |
-
-**一句话定位**：它们解决"AI 记不记得住"，我们额外解决"记忆可读、可审计、不污染、不锁死"——给 AI 的记忆，同时是你随时能翻开看、能 git、能带走的文件。
 
 ## License
 
